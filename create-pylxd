@@ -38,9 +38,8 @@ print('%s: %s container_init() ->' %(date(), name))
 try:
     (resp, data) = c.container_init(config)
 except Exception as e:
-    print(('Failed to create profile: %s') % data.get('metadata'))
     msg = ('Cannot create container: {0}')
-    raise Exception(msg.format(e), instance_id=name)
+    raise Exception(msg.format(e), name)
 
 if resp not in [200, 202]:
     print 'Failed to init container!'
